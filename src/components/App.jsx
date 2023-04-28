@@ -1,20 +1,24 @@
+import React, { Component } from 'react';
 import Section from './Section';
+import FeedbackOptions from './FeedbackOptions';
 
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      <Section title="Please leave feedback">
-        {/* <Profile user={user} /> */}
-      </Section>
-    </div>
-  );
-};
+import css from './App.module.css';
+
+class App extends Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0
+  }
+
+  render() {
+    return (
+      <div className={css.section} >
+        <Section title="Please leave feedback">
+          <FeedbackOptions/>
+        </Section>
+      </div>
+    );
+  }
+}
+export default App;

@@ -1,0 +1,8 @@
+.buttons__list{
+    display: flex;
+    gap: 16px;
+
+    padding: 16px;
+
+    border-radius: 4px;
+}
