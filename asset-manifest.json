@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "//github.com/mrSerGL/goit-react-hw-02-feedback/static/css/main.7acaea2f.css",
-    "main.js": "//github.com/mrSerGL/goit-react-hw-02-feedback/static/js/main.07d3183d.js",
-    "index.html": "//github.com/mrSerGL/goit-react-hw-02-feedback/index.html",
-    "main.7acaea2f.css.map": "//github.com/mrSerGL/goit-react-hw-02-feedback/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "//github.com/mrSerGL/goit-react-hw-02-feedback/static/js/main.07d3183d.js.map"
+    "main.css": "/mrSerGL/goit-react-hw-02-feedback/static/css/main.7acaea2f.css",
+    "main.js": "/mrSerGL/goit-react-hw-02-feedback/static/js/main.da0df8af.js",
+    "index.html": "/mrSerGL/goit-react-hw-02-feedback/index.html",
+    "main.7acaea2f.css.map": "/mrSerGL/goit-react-hw-02-feedback/static/css/main.7acaea2f.css.map",
+    "main.da0df8af.js.map": "/mrSerGL/goit-react-hw-02-feedback/static/js/main.da0df8af.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/js/main.da0df8af.js"
   ]
 }
