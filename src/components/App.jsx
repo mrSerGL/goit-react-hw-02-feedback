@@ -5,12 +5,9 @@ import Statistics from './Statistics';
 
 import css from './App.module.css';
 
+// ============== Class area ===================
+
 class App extends Component {
-  // static defaultState = {
-  //   good: 0,
-  //   neutral: 0,
-  //   bad: 0,
-  // };
 
   state = {
     good: 0,
@@ -18,29 +15,82 @@ class App extends Component {
     bad: 0,
   };
 
-  handlerGoodBtn = () => {
-    // console.log(prevState);
+  // handleFeedback = (type) => {
+  //   this.setState(prevState => ({
+  //     [type]: prevState[type] + 1,
+  //   }), () => {
+  //     this.countTotalFeedback(this.state);
+  //     this.countPositiveFeedbackPercentage(this.state);
+  //   });
+  // };
+
+  handleFeedback = (type) => {
     this.setState(prevState => ({
-      good: prevState.good + 1,
+      [type]: prevState[type] + 1,
     }));
   };
 
-  onLeaveFeedback = {
-    handlerGoodBtn: this.handlerGoodBtn,
+
+
+  handlerGoodBtn = () => {
+    this.handleFeedback('good');
+  };
+  
+  handlerNeutralBtn = () => {
+    this.handleFeedback('neutral');
+  };
+  
+  handlerBadBtn = () => {
+    this.handleFeedback('bad');
   };
 
+    onLeaveFeedback = {
+    handlerGoodBtn: this.handlerGoodBtn,
+    handlerNeutralBtn: this.handlerNeutralBtn,
+    handlerBadBtn: this.handlerBadBtn,
+  };
+
+  countTotalFeedback=(input)=>{
+     const {good, neutral, bad} = input;
+     const total = (good + bad + neutral)
+    //  console.log('total',total)
+     return total
+    
+  } 
+
+  countPositiveFeedbackPercentage = () => {
+    const { good, neutral, bad } = this.state;
+    const total = good + neutral + bad;
+    const percentage = total > 0 ? Math.round((good / total) * 100) : 0;
+    return percentage;
+  }
+
+  positivePercentage={
+    totalFeedback: this.countTotalFeedback,
+    positiveFeedbackPercentage: this.countPositiveFeedbackPercentage,
+  }
+
+
+
+  // ================ render area =====================
+
   render() {
+    const markupLeaveFrrdback = (
+      <Section title="Please leave feedback">
+        <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback}/>
+      </Section>
+    );
+
+    const markupStatistics = (
+      <Section title="Statistics">
+        <Statistics options={this.state} positivePercentage={this.positivePercentage}/>
+      </Section>
+    );
+
     return (
       <div className={css.section}>
-        <Section title="Please leave feedback">
-          <FeedbackOptions
-            // options={this.state}
-            onLeaveFeedback={this.onLeaveFeedback}
-          />
-        </Section>
-        <Section title="Statistics">
-          <Statistics options={this.state}></Statistics>
-        </Section>
+        {markupLeaveFrrdback}
+        {markupStatistics}
       </div>
     );
   }
