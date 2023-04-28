@@ -3,9 +3,9 @@ function FeedbackOptions(){
 return (
 <>
 <ul className={css.buttons__list}>
-    <li className='button'><button type="button">Good</button></li>
-    <li className='button'><button type="button">Neutral</button></li>
-    <li className='button'><button type="button">Bad</button></li>
+    <li className={css.button}><button type="button">Good</button></li>
+    <li className={css.button}><button type="button">Neutral</button></li>
+    <li className={css.button}><button type="button">Bad</button></li>
 </ul>
 
 </>
