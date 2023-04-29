@@ -4,8 +4,6 @@ function Statistics({ options, positivePercentage }) {
   const { good, neutral, bad } = options;
   const { totalFeedback, positiveFeedbackPercentage } = positivePercentage;
 
-  // console.log(totalFeedback, positiveFeedbackPercentage);
-
   return (
     <>
       <ul className={css.statisticsList}>

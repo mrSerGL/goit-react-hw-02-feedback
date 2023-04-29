@@ -8,7 +8,6 @@ import css from './App.module.css';
 // ============== Class area ===================
 
 class App extends Component {
-
   state = {
     good: 0,
     neutral: 0,
@@ -24,75 +23,73 @@ class App extends Component {
   //   });
   // };
 
-  handleFeedback = (type) => {
+  handleFeedback = type => {
     this.setState(prevState => ({
       [type]: prevState[type] + 1,
     }));
   };
 
-
-
   handlerGoodBtn = () => {
     this.handleFeedback('good');
   };
-  
+
   handlerNeutralBtn = () => {
     this.handleFeedback('neutral');
   };
-  
+
   handlerBadBtn = () => {
     this.handleFeedback('bad');
   };
 
-    onLeaveFeedback = {
+  onLeaveFeedback = {
     handlerGoodBtn: this.handlerGoodBtn,
     handlerNeutralBtn: this.handlerNeutralBtn,
     handlerBadBtn: this.handlerBadBtn,
   };
 
-  countTotalFeedback=(input)=>{
-     const {good, neutral, bad} = input;
-     const total = (good + bad + neutral)
-    //  console.log('total',total)
-     return total
-    
-  } 
-
-  
+  countTotalFeedback = input => {
+    const { good, neutral, bad } = input;
+    const total = good + bad + neutral;
+    return total;
+  };
 
   countPositiveFeedbackPercentage = () => {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
     const percentage = total > 0 ? Math.round((good / total) * 100) : 0;
     return percentage;
-  }
+  };
 
-  positivePercentage={
+  positivePercentage = {
     totalFeedback: this.countTotalFeedback,
     positiveFeedbackPercentage: this.countPositiveFeedbackPercentage,
-  }
-
-
+  };
 
   // ================ render area =====================
 
   render() {
     const markupLeaveFrrdback = (
       <Section title="Please leave feedback">
-        <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback}/>
+        <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} />
       </Section>
     );
 
     const markupStatistics = (
       <Section title="Statistics">
-        <Statistics options={this.state} positivePercentage={this.positivePercentage}/>
+        <Statistics
+          options={this.state}
+          positivePercentage={this.positivePercentage}
+        />
       </Section>
     );
 
     return (
       <div className={css.section}>
         {markupLeaveFrrdback}
-        {(this.state.good >0 || this.state.neutral > 0 || this.state.bad > 0)&& markupStatistics}
+        {(this.state.good > 0 ||
+          this.state.neutral > 0 ||
+          this.state.bad > 0) &&
+          markupStatistics}
       </div>
     );
   }
