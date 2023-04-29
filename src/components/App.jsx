@@ -83,14 +83,28 @@ class App extends Component {
       </Section>
     );
 
+    const message = "There is no feedback"
+
     return (
+      // <div className={css.section}>
+      //   {markupLeaveFrrdback}
+      //   {(this.state.good > 0 ||
+      //     this.state.neutral > 0 ||
+      //     this.state.bad > 0) &&
+      //     markupStatistics}
+      // </div>
+
       <div className={css.section}>
         {markupLeaveFrrdback}
         {(this.state.good > 0 ||
           this.state.neutral > 0 ||
-          this.state.bad > 0) &&
-          markupStatistics}
+          this.state.bad > 0) 
+          ? markupStatistics
+          : <p className={css.message}>{message}</p>
+          }
       </div>
+
+
     );
   }
 }
