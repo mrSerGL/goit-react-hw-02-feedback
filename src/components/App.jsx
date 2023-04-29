@@ -58,6 +58,8 @@ class App extends Component {
     
   } 
 
+  
+
   countPositiveFeedbackPercentage = () => {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
@@ -90,7 +92,7 @@ class App extends Component {
     return (
       <div className={css.section}>
         {markupLeaveFrrdback}
-        {markupStatistics}
+        {(this.state.good >0 || this.state.neutral > 0 || this.state.bad > 0)&& markupStatistics}
       </div>
     );
   }
