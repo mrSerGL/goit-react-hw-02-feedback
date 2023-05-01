@@ -19,8 +19,7 @@ function Statistics({ options, positivePercentage }) {
 }
 
 Statistics.propTypes = {
-
-  // options: propTypes.array.isRequired,
+  options: propTypes.object.isRequired,
   positivePercentage: propTypes.object.isRequired,
 };
 
