@@ -1,3 +1,4 @@
+import propTypes from 'prop-types';
 import css from './Statistics.module.css';
 
 function Statistics({ options, positivePercentage }) {
@@ -16,5 +17,11 @@ function Statistics({ options, positivePercentage }) {
     </>
   );
 }
+
+Statistics.propTypes = {
+
+  // options: propTypes.array.isRequired,
+  positivePercentage: propTypes.object.isRequired,
+};
 
 export default Statistics;
